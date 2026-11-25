@@ -8,6 +8,7 @@ from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 from starlette.middleware.sessions import SessionMiddleware
 
+from socratic_ai.analytics import router as analytics_router
 from socratic_ai.auth import router as auth_router
 from socratic_ai.db import DEFAULT_DB_PATH, init_db
 from socratic_ai.practice import router as practice_router
@@ -46,6 +47,7 @@ def create_app(
     application.include_router(rag_router)
     application.include_router(tutor_router)
     application.include_router(practice_router)
+    application.include_router(analytics_router)
 
     @application.get("/api/health")
     def health() -> dict[str, str]:

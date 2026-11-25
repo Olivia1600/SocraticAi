@@ -24,7 +24,7 @@
 
 ## 6. Teacher Analytics & Assignment Distribution
 
-- [ ] 6.1 Implement `socratic_ai/analytics.py` for class-scoped Student x Concept mastery heatmap, aggregated weekly misconception clusters, intervention alerts (`hints_used_avg > 2.5` or consecutive Elo drops), and one-click curated practice assignment creation, verifying all `teacher-analytics` scenarios pass in `pytest tests/test_analytics.py`.
+- [x] 6.1 Implement `socratic_ai/analytics.py` for class-scoped Student x Concept mastery heatmap, aggregated weekly misconception clusters, intervention alerts (`hints_used_avg > 2.5` or consecutive Elo drops), and one-click curated practice assignment creation, verifying all `teacher-analytics` scenarios pass in `pytest tests/test_analytics.py`.
 
 ## 7. Split-Screen Student & Teacher Web UI
 
