@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Socratic AI Tutor</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <section id="authScreen" class="auth-screen">
+    <div class="auth-card">
+      <div class="auth-brand"><span class="brand-mark">S</span><span>Socratic AI</span></div>
+      <p class="eyebrow" id="authEyebrow">Welcome back</p>
+      <h1 id="authTitle">Sign in</h1>
+      <p id="authSubtitle" class="auth-subtitle">Learn by reasoning, not shortcuts.</p>
+      <form id="authForm">
+        <label for="authName">Name</label>
+        <input id="authName" name="name" autocomplete="name" required>
+        <label for="authPassword">Password</label>
+        <input id="authPassword" name="password" type="password" autocomplete="current-password" minlength="6" required>
+        <div id="registerFields" class="hidden">
+          <label for="authRole">Role</label>
+          <select id="authRole">
+            <option value="student">Student</option>
+            <option value="teacher">Teacher</option>
+          </select>
+          <label for="authClass">Class</label>
+          <input id="authClass" value="Physics 101">
+        </div>
+        <p id="authError" class="auth-error"></p>
+        <button type="submit" id="authSubmit" class="btn-primary full">Sign in</button>
+      </form>
+      <button id="authSwitch" class="btn-link">New here? Create an account</button>
+    </div>
+  </section>
+
+  <div id="appShell" class="app-shell hidden">
+    <aside class="sidebar">
+      <div class="brand"><span class="brand-mark">S</span><span>Socratic AI</span></div>
+      <nav>
+        <button class="nav active" data-view="learn">Learn</button>
+        <button class="nav" data-view="progress">My Progress</button>
+        <button class="nav hidden" id="teacherNav" data-view="teacher">Teacher View</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="user-pill" id="sidebarUser">Student</div>
+        <button class="btn-ghost" id="logoutButton">Sign out</button>
+      </div>
+    </aside>
+
+    <main class="main-area">
+      <section id="learnView" class="view">
+        <header class="view-header">
+          <div>
+            <p class="eyebrow">Split-screen Socratic workspace</p>
+            <h1 id="learnHeaderClass">Physics 101</h1>
+          </div>
+          <div class="toolbar">
+            <select id="bookSelect" aria-label="Textbook"><option value="">No textbook uploaded</option></select>
+            <select id="conceptSelect" aria-label="Concept"><option value="">Auto-detect concept</option></select>
+            <label class="btn-primary upload-label">
+              Upload PDF
+              <input id="pdfInput" type="file" accept="application/pdf">
+            </label>
+          </div>
+        </header>
+
+        <div class="split-workspace">
+          <section class="pdf-pane">
+            <div class="pane-head">
+              <h2>Textbook Source</h2>
+              <span class="badge" id="pdfMeta">Select or upload a PDF</span>
+            </div>
+            <iframe id="pdfFrame" class="pdf-frame" title="Textbook PDF viewer"></iframe>
+            <div class="citations-box">
+              <h3>Cited Passages</h3>
+              <div id="citationList" class="citation-list">
+                <p class="muted">Relevant definitions and theorems appear here with page citations.</p>
+              </div>
+            </div>
+          </section>
+
+          <section class="tutor-pane">
+            <div class="status-strip">
+              <span class="pill" id="activeConceptPill">Concept: Auto</span>
+              <span class="pill" id="scaffoldingPill">Scaffolding: 1/4</span>
+              <span class="pill" id="eloPill">Elo: 1000</span>
+              <button id="practiceBtn" class="btn-secondary">Practice question</button>
+            </div>
+            <div id="chatMessages" class="chat-messages">
+              <div class="message tutor">
+                <div class="avatar">S</div>
+                <div class="bubble">Upload a textbook PDF, pick a concept or ask a question, and we'll reason through it step by step.</div>
+              </div>
+            </div>
+            <form id="chatForm" class="chat-form">
+              <input id="chatInput" placeholder="Explain your thinking or ask a question..." autocomplete="off">
+              <button type="submit" class="btn-primary">Send</button>
+            </form>
+          </section>
+        </div>
+      </section>
+
+      <section id="progressView" class="view hidden">
+        <header class="view-header">
+          <div><p class="eyebrow">Learner mastery</p><h1>My Progress</h1></div>
+        </header>
+        <h2 class="section-title">Assigned Practice</h2>
+        <div id="assignmentList" class="cards-grid"></div>
+        <h2 class="section-title">Concept Elo Mastery</h2>
+        <div id="progressCards" class="cards-grid"></div>
+      </section>
+
+      <section id="teacherView" class="view hidden">
+        <header class="view-header">
+          <div><p class="eyebrow">Classroom intelligence</p><h1 id="teacherClassTitle">Physics 101</h1></div>
+          <button id="refreshTeacherBtn" class="btn-secondary">Refresh</button>
+        </header>
+        <div class="teacher-panels">
+          <section class="panel full-span">
+            <div class="pane-head">
+              <h2>Class Mastery Heatmap</h2>
+              <span class="muted">Struggling &lt; 900 · Developing 900–1150 · Mastered &gt; 1150</span>
+            </div>
+            <div class="table-wrap">
+              <table id="heatmapTable" class="heatmap-table"></table>
+            </div>
+          </section>
+
+          <section class="panel">
+            <h2>Top Misconception Clusters</h2>
+            <div id="clusterList" class="stack-list"></div>
+          </section>
+
+          <section class="panel">
+            <h2>Intervention Alerts</h2>
+            <div id="alertList" class="stack-list"></div>
+          </section>
+
+          <section class="panel full-span">
+            <h2>Push Targeted Practice Assignment</h2>
+            <form id="assignForm" class="assign-form">
+              <select id="assignConceptSelect" required><option value="">Select concept</option></select>
+              <input id="assignTitleInput" placeholder="Assignment title (optional)">
+              <button type="submit" class="btn-primary">Assign to Class</button>
+            </form>
+            <p id="assignFeedback" class="muted"></p>
+          </section>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <dialog id="practiceDialog" class="practice-dialog">
+    <button class="close-btn" id="closePractice" aria-label="Close">×</button>
+    <p class="eyebrow">Zone of Proximal Development Practice</p>
+    <h2 id="practiceConcept"></h2>
+    <p class="muted" id="practiceDifficulty"></p>
+    <p id="practiceQuestion" class="question-text"></p>
+    <div id="practiceHintBox" class="hint-box hidden"></div>
+    <textarea id="practiceAnswer" placeholder="Explain your reasoning in your own words..."></textarea>
+    <div class="dialog-actions">
+      <button id="hintBtn" type="button" class="btn-secondary">Get hint</button>
+      <button id="giveUpBtn" type="button" class="btn-ghost">Give up</button>
+      <button id="submitAnswer" type="button" class="btn-primary">Submit answer</button>
+    </div>
+    <p id="practiceFeedback" class="feedback-text"></p>
+  </dialog>
+
+  <div id="toast" class="toast"></div>
+  <script src="/static/app.js"></script>
+</body>
+</html>

@@ -28,4 +28,4 @@
 
 ## 7. Split-Screen Student & Teacher Web UI
 
-- [ ] 7.1 Build `static/index.html`, `static/styles.css`, and `static/app.js` with auth screen, split-screen student workspace (embedded PDF/citation viewer + Socratic dialogue + adaptive practice dialog + mastery view + assigned practice list), and teacher dashboard (heatmap grid, misconception clusters, intervention alerts, assignment builder), verifying DOM/API integration in `pytest tests/test_e2e.py` and documenting local startup in `README.md`.
+- [x] 7.1 Build `static/index.html`, `static/styles.css`, and `static/app.js` with auth screen, split-screen student workspace (embedded PDF/citation viewer + Socratic dialogue + adaptive practice dialog + mastery view + assigned practice list), and teacher dashboard (heatmap grid, misconception clusters, intervention alerts, assignment builder), verifying DOM/API integration in `pytest tests/test_e2e.py` and documenting local startup in `README.md`.
