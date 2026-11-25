@@ -2,8 +2,8 @@
 
 ## 1. Project Foundation & Database Schema
 
-- [ ] 1.1 Create `.gitignore`, `requirements.txt` (FastAPI, uvicorn, pypdf, scikit-learn, itsdangerous, python-multipart, pytest, httpx), and `socratic_ai/` package skeleton, verifying `pip install -r requirements.txt` succeeds and `uvicorn socratic_ai.main:app` imports cleanly.
-- [ ] 1.2 Implement `socratic_ai/db.py` with WAL-enabled SQLite connection management and schema initialization (`users`, `textbooks`, `concepts`, `chunks`, `student_concept_mastery`, `tutoring_sessions`, `tutoring_messages`, `practice_items`, `assignments`) and verify schema creation and foreign key constraints pass in a `pytest` unit test.
+- [x] 1.1 Create `.gitignore`, `requirements.txt` (FastAPI, uvicorn, pypdf, scikit-learn, itsdangerous, python-multipart, pytest, httpx), and `socratic_ai/` package skeleton, verifying `pip install -r requirements.txt` succeeds and `uvicorn socratic_ai.main:app` imports cleanly.
+- [x] 1.2 Implement `socratic_ai/db.py` with WAL-enabled SQLite connection management and schema initialization (`users`, `textbooks`, `concepts`, `chunks`, `student_concept_mastery`, `tutoring_sessions`, `tutoring_messages`, `practice_items`, `assignments`) and verify schema creation and foreign key constraints pass in a `pytest` unit test.
 
 ## 2. Authentication & Role Authorization
 
