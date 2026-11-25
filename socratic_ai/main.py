@@ -10,6 +10,7 @@ from starlette.middleware.sessions import SessionMiddleware
 
 from socratic_ai.auth import router as auth_router
 from socratic_ai.db import DEFAULT_DB_PATH, init_db
+from socratic_ai.practice import router as practice_router
 from socratic_ai.rag import router as rag_router
 from socratic_ai.tutor import router as tutor_router
 
@@ -44,6 +45,7 @@ def create_app(
     application.include_router(auth_router)
     application.include_router(rag_router)
     application.include_router(tutor_router)
+    application.include_router(practice_router)
 
     @application.get("/api/health")
     def health() -> dict[str, str]:

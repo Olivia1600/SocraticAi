@@ -20,7 +20,7 @@
 
 ## 5. Adaptive Practice & Elo Mastery Engine
 
-- [ ] 5.1 Implement `socratic_ai/practice.py` Elo rating engine (default `1000`, status bands, hint-weighted deltas, floor `600`), ZPD practice generation (`elo_score + 50`) storing `hidden_solution_steps` and `common_misconceptions` server-side, and misconception-logging answer evaluator, verifying all `adaptive-practice` scenarios pass in `pytest tests/test_practice.py`.
+- [x] 5.1 Implement `socratic_ai/practice.py` Elo rating engine (default `1000`, status bands, hint-weighted deltas, floor `600`), ZPD practice generation (`elo_score + 50`) storing `hidden_solution_steps` and `common_misconceptions` server-side, and misconception-logging answer evaluator, verifying all `adaptive-practice` scenarios pass in `pytest tests/test_practice.py`.
 
 ## 6. Teacher Analytics & Assignment Distribution
 
