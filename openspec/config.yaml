@@ -1,0 +1,7 @@
+schema: spec-driven
+
+context: |
+  Tech stack: Python 3.11+, FastAPI, SQLite, vanilla HTML/CSS/JS frontend served by FastAPI.
+  Architecture: Local-first with deterministic offline fallbacks (PyPDF/BM25+TF-IDF retrieval, rule-based Socratic planner/guard) and optional LLM enhancement when an API key is configured.
+  Target environment: Windows (PowerShell) and POSIX; single-command local startup with zero mandatory external services (no Docker, Postgres, Redis, or Qdrant required).
+  Quality: Every change must include automated pytest unit/integration tests and clean separation between ingestion/RAG, Socratic state machine, mastery tracking, and API/UI layers.
