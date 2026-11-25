@@ -7,7 +7,7 @@
 
 ## 2. Authentication & Role Authorization
 
-- [ ] 2.1 Implement `socratic_ai/auth.py` with PBKDF2-SHA256 password hashing, registration, login, session inspection, logout, and FastAPI role dependencies (`student`, `teacher`) and verify all `user-auth` spec scenarios pass with `pytest tests/test_auth.py`.
+- [x] 2.1 Implement `socratic_ai/auth.py` with PBKDF2-SHA256 password hashing, registration, login, session inspection, logout, and FastAPI role dependencies (`student`, `teacher`) and verify all `user-auth` spec scenarios pass with `pytest tests/test_auth.py`.
 
 ## 3. Textbook PDF Ingestion & Concept-Aware RAG
 
