@@ -11,6 +11,7 @@ from starlette.middleware.sessions import SessionMiddleware
 from socratic_ai.auth import router as auth_router
 from socratic_ai.db import DEFAULT_DB_PATH, init_db
 from socratic_ai.rag import router as rag_router
+from socratic_ai.tutor import router as tutor_router
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 DEFAULT_UPLOAD_DIR = BASE_DIR / "uploads"
@@ -42,6 +43,7 @@ def create_app(
 
     application.include_router(auth_router)
     application.include_router(rag_router)
+    application.include_router(tutor_router)
 
     @application.get("/api/health")
     def health() -> dict[str, str]:

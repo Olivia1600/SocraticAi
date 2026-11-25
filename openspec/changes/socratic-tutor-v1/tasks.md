@@ -16,7 +16,7 @@
 
 ## 4. Socratic State Machine & Answer-Leakage Guard
 
-- [ ] 4.1 Implement `socratic_ai/tutor.py` four-stage pipeline (`diagnose_turn`, `update_state_and_mastery`, `plan_pedagogical_move` including 3-turn stuck prerequisite step-back, and `AnswerLeakageGuard`) plus session/message persistence endpoints, verifying all `socratic-tutor` scenarios pass in `pytest tests/test_tutor.py`.
+- [x] 4.1 Implement `socratic_ai/tutor.py` four-stage pipeline (`diagnose_turn`, `update_state_and_mastery`, `plan_pedagogical_move` including 3-turn stuck prerequisite step-back, and `AnswerLeakageGuard`) plus session/message persistence endpoints, verifying all `socratic-tutor` scenarios pass in `pytest tests/test_tutor.py`.
 
 ## 5. Adaptive Practice & Elo Mastery Engine
 
