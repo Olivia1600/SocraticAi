@@ -11,8 +11,8 @@
 
 ## 3. Textbook PDF Ingestion & Concept-Aware RAG
 
-- [ ] 3.1 Implement `socratic_ai/llm.py` provider interface with deterministic local fallback and optional `GEMINI_API_KEY` / `OPENAI_API_KEY` adapter, verifying unit tests cover offline fallback behavior.
-- [ ] 3.2 Implement `socratic_ai/rag.py` for PDF upload validation, heading/chapter/section parsing, `content_type` classification (`definition`, `theorem`, `worked_example`, `exercise`, `narrative`), hierarchical `concepts` extraction (`parent_concept_id`), and hybrid TF-IDF/BM25 retrieval with citations, verifying API and unit tests pass in `pytest tests/test_rag.py`.
+- [x] 3.1 Implement `socratic_ai/llm.py` provider interface with deterministic local fallback and optional `GEMINI_API_KEY` / `OPENAI_API_KEY` adapter, verifying unit tests cover offline fallback behavior.
+- [x] 3.2 Implement `socratic_ai/rag.py` for PDF upload validation, heading/chapter/section parsing, `content_type` classification (`definition`, `theorem`, `worked_example`, `exercise`, `narrative`), hierarchical `concepts` extraction (`parent_concept_id`), and hybrid TF-IDF/BM25 retrieval with citations, verifying API and unit tests pass in `pytest tests/test_rag.py`.
 
 ## 4. Socratic State Machine & Answer-Leakage Guard
 
